@@ -1,1 +1,1 @@
-# Payment-Briva-SnapBI
+# Recoll-Mobile
