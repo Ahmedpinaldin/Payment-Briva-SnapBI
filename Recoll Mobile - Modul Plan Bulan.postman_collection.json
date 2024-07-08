@@ -1,0 +1,506 @@
+{
+	"info": {
+		"_postman_id": "15975fbb-39af-4bfc-b77a-02015a5d1446",
+		"name": "Recoll Mobile - Modul Plan Bulan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33082130"
+	},
+	"item": [
+		{
+			"name": "list planbulan by kol & kode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/planbulan/listkol?kol=1&page=1&limit=2&kode=a1s",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"planbulan",
+						"listkol"
+					],
+					"query": [
+						{
+							"key": "kol",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "kode",
+							"value": "a1s"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list wo by kode_unit nominatifwo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/planbulan/wo?page=1&limit=2&kode=aa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"planbulan",
+						"wo"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "kode",
+							"value": "aa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail planbulan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/planbulan/detail/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"planbulan",
+						"detail",
+						"1"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail planbulan - list penanganan cab",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/penanganan?inisialcab=GRT",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"penanganan"
+					],
+					"query": [
+						{
+							"key": "inisialcab",
+							"value": "GRT"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail planbulan - list pic penanganan id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/penanganan/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"penanganan",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save detail planbulan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tgl_plan\" : \"2024-04-20\",\r\n    \"bln_plan\" : 4,\r\n    \"thn_plan\" : 2024,\r\n    \"no_rekening\" : \"1BS.054.000342\",\r\n    \"nama_nasabah\" : \"HINDIA\",\r\n    \"kode_unit\" : \"1BS\",\r\n    \"inisial_cab\" : \"PDG\",\r\n    \"jenis_usaha\" : \"PERDAGANGAN\",\r\n    \"kondisi_usaha\" : \"SEPERTI SEMULA\",\r\n    \"sp_1\" : \"YA\",\r\n    \"sp_2\" : \"TDK\",\r\n    \"sp_3\" : \"YA\",\r\n    \"obyek_agunan\" : \"TANAH KOSONG\",\r\n    \"dokumen_agunan\" : \"SHM/SHGB\",\r\n    \"pengikatan\" : \"NOTARIIL\",\r\n    \"jenis_pengikatan\" : \"SERTIFIKAT HAK TANGGUNGAN\",\r\n    \"status_dokumen\" : \"SELESAI\",\r\n    \"nilai_saat_ini\" : \"HARGA JUAL LEBIH DARI OS\",\r\n    \"mudah_jual\" : \"YA\",\r\n    \"keberadaan_agunan\" : \"DIKETAHUI\",\r\n    \"sengketa\" : \"TIDAK\",\r\n    \"s_diputuskan_kpp\" : \"TIDAK\",\r\n    \"status_lelang\" : \"BELUM LELANG\",\r\n    \"lelang_ke\" : \"PNM\",\r\n    \"permasalahan\" : \"TIDAK ADA\",\r\n    \"cara_penanganan\" : \"COLL\",\r\n    \"rencana_penyelesaian\" : \"Penagihan - Back to Current\",\r\n    \"input_pokok\" : 0,\r\n    \"nominal_lunas_bertahap\" : 0,\r\n    \"tgl_jb\" : \"2024-04-18\",\r\n    \"ket_rinci\" : \"LANCAR\",\r\n    \"id_pic\" : \"2905\",\r\n    \"kategori_recovery\" : \"\",\r\n    \"ket_recovery\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/planbulan/saveplanbulan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"planbulan",
+						"saveplanbulan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save detail planbulanwo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tgl_plan\" : \"2024-03-18\",\r\n    \"bln_plan\" : 4,\r\n    \"thn_plan\" : 2024,\r\n    \"no_rekening\" : \"AR.018.000200\",\r\n    \"nama_nasabah\" : \"BUMI\",\r\n    \"kode_unit\" : \"EG\",\r\n    \"inisial_cab\" : \"JKT\",\r\n    \"lunas_blm_lunas\" : \"PERDAGANGAN\",\r\n    \"nilai_jamkrindo\" : \"0\",\r\n    \"sp_1\" : \"YA\",\r\n    \"sp_2\" : \"TDK\",\r\n    \"sp_3\" : \"YA\",\r\n    \"jaminan_ada_tidak\" : \"JAMINAN MASIH ADA\",\r\n    \"obyek_agunan\" : \"TANAH KOSONG\",\r\n    \"dokumen_agunan\" : \"SHM/SHGB\",\r\n    \"pengikatan\" : \"NOTARIIL\",\r\n    \"jenis_pengikatan\" : \"SERTIFIKAT HAK TANGGUNGAN\",\r\n    \"status_dokumen\" : \"SELESAI\",\r\n    \"nilai_saat_ini\" : \"HARGA JUAL LEBIH DARI OS\",\r\n    \"mudah_jual\" : \"YA\",\r\n    \"keberadaan_agunan\" : \"DIKETAHUI\",\r\n    \"sengketa\" : \"TIDAK\",\r\n    \"s_diputuskan_kpp\" : \"TIDAK\",\r\n    \"status_lelang\" : \"BELUM LELANG\",\r\n    \"lelang_ke\" : \"PNM\",\r\n    \"permasalahan\" : \"TIDAK ADA\",\r\n    \"cara_penanganan\" : \"COLL\",\r\n    \"rencana_penyelesaian\" : \"Penagihan - Back to Current\",\r\n    \"tgl_jb\" : \"2024-04-18\",\r\n    \"ket_rinci\" : \"LANCAR\",\r\n    \"nominal_pembayaran\" : \"500000\",\r\n    \"id_pic\" : \"216\",\r\n    \"kategori_recovery\" : \"1\",\r\n    \"ket_recovery\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/planbulan/saveplanbulanwo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"planbulan",
+						"saveplanbulanwo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resume baseon by kol & kode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/resume/baseonkol?kode=1LL&kol=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"resume",
+						"baseonkol"
+					],
+					"query": [
+						{
+							"key": "kode",
+							"value": "1LL"
+						},
+						{
+							"key": "kol",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resume plan kol 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/resume/resumeplankol-1?kode=1AH",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"resume",
+						"resumeplankol-1"
+					],
+					"query": [
+						{
+							"key": "kode",
+							"value": "1AH"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resume plan kol 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/resume/resumeplankol-2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"resume",
+						"resumeplankol-2"
+					],
+					"query": [
+						{
+							"key": "kode",
+							"value": "TO",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resume plan kol 3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/resume/resumeplankol-3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"resume",
+						"resumeplankol-3"
+					],
+					"query": [
+						{
+							"key": "kode",
+							"value": "EH",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resume plan kol 4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/resume/resumeplankol-4?kode=EH",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"resume",
+						"resumeplankol-4"
+					],
+					"query": [
+						{
+							"key": "kode",
+							"value": "EH"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resume plan kol 5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/resume/resumeplankol-5?kode=1AH",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"resume",
+						"resumeplankol-5"
+					],
+					"query": [
+						{
+							"key": "kode",
+							"value": "1AH"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resume baseon wo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/resume/baseonwo?kode=AA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"resume",
+						"baseonwo"
+					],
+					"query": [
+						{
+							"key": "kode",
+							"value": "AA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resume plan wo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/resume/resumewo?kode=EG",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"resume",
+						"resumewo"
+					],
+					"query": [
+						{
+							"key": "kode",
+							"value": "EG"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resume rembes npl",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/resume/resumerembesnpl?kode=IA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"resume",
+						"resumerembesnpl"
+					],
+					"query": [
+						{
+							"key": "kode",
+							"value": "IA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update plan bulan",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tgl_plan\": \"2023-08-01\",\r\n        \"bln_plan\": 8,\r\n        \"thn_plan\": 2023,\r\n        \"no_rekening\": \"EH.046.000210\",\r\n        \"nama_nasabah\": null,\r\n        \"kode_unit\": \"EH\",\r\n        \"inisial_cab\": \"WNG\",\r\n        \"jenis_usaha\": \"WEDANGAN WARUNG MAKAN\",\r\n        \"kondisi_usaha\": \"SEPERTI SEMULA\",\r\n        \"sp_1\": \"TIDAK\",\r\n        \"sp_2\": \"TIDAK\",\r\n        \"sp_3\": \"TIDAK\",\r\n        \"obyek_agunan\": \"TANAH KOSONG\",\r\n        \"dokumen_agunan\": \"SHM/SHGB\",\r\n        \"pengikatan\": \"NOTARIIL\",\r\n        \"jenis_pengikatan\": \"SERTIFIKAT HAK TANGGUNGAN\",\r\n        \"status_dokumen\": \"SELESAI\",\r\n        \"nilai_saat_ini\": \"HARGA JUAL LEBIH DARI OS\",\r\n        \"mudah_jual\": \"YA\",\r\n        \"keberadaan_agunan\": \"DIKETAHUI\",\r\n        \"sengketa\": \"TIDAK\",\r\n        \"s_diputuskan_kpp\": \"TIDAK\",\r\n        \"status_lelang\": \"BELUM LELANG\",\r\n        \"lelang_ke\": \"\",\r\n        \"permasalahan\": \"\",\r\n        \"cara_penanganan\": \"COLL\",\r\n        \"rencana_penyelesaian\": \"Penagihan - Back to Current\",\r\n        \"input_pokok\": 0,\r\n        \"nominal_lunas_bertahap\": 0,\r\n        \"tgl_jb\": \"\",\r\n        \"ket_rinci\": \"LANCAR\",\r\n        \"id_pic\": \"2905\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/planbulan/3556917",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"planbulan",
+						"3556917"
+					],
+					"query": [
+						{
+							"key": "jenis_usaha",
+							"value": "WARUNG MAKAN",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

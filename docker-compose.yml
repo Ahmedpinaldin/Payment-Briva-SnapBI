@@ -1,0 +1,12 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile-production
+    restart: always
+    privileged: true
+    environment:
+      - ENV=production
+    ports:
+      - "8090:8090"

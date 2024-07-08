@@ -1,0 +1,60 @@
+pipeline {
+    
+    agent any
+    
+    environment {
+        imageName = "${env.deploymentName}"
+        registryCredentials = "docker_credential_lokal"
+        registry = "http://10.61.4.123:8087/"
+        deploymentName = 'api-recoll-ulamm-mobile'
+        namespaceKube = 'recoll-ulamm'
+        tag = sh(returnStdout: true, script: "git rev-parse HEAD").trim()
+    }
+    
+    stages {
+        stage('Checkout Source') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: 'development']], extensions: [],
+                    userRemoteConfigs: [[credentialsId: 'git_lab_tes_ajz',
+                    url: 'http://10.61.4.35/DEDARTO0426/api-recoll-ulamm-mobile.git']]])
+            }
+        }
+        stage('Building image') {
+            steps {
+                script {
+                    docker.build(imageName, "-f Dockerfile-development .")
+                }
+            }
+        }
+        stage('Uploading to Nexus') {
+            steps {
+                script {
+                    docker.withRegistry(registry, registryCredentials) {
+                        docker.image(imageName).push("development")
+                        docker.image(imageName).push("latest")
+                    }
+                }
+            }
+        }
+        stage('Deploy To Kubernetes') {
+            steps {
+                sshagent(['ssh_key_kube']) {
+                    script{
+                        try {
+                            sh "ssh ubuntu@10.61.4.250 kubectl create secret docker-registry ajzdockerkey --namespace=${env.namespaceKube} --docker-server=10.61.4.123:8087 --docker-username=jazuli0701 --docker-password=Taik3ring"
+                        } catch(error) {}
+                        try {
+                            sh "ssh ubuntu@10.61.4.250 kubectl delete deployments ${env.deploymentName}-development --namespace=${env.namespaceKube}"
+                        } catch(error) {}
+                        try {
+                            sh "ssh ubuntu@10.61.4.250 kubectl delete configmap ${env.deploymentName}-config-development --namespace=${env.namespaceKube}"
+                        } catch(error) {}
+
+                        sh "sed -i 's+change-git-commit-id+${env.tag}+g' kubernetes-development.yaml"
+                        sh "cat kubernetes-development.yaml | ssh ubuntu@10.61.4.250 kubectl apply -f - --validate=false"
+                    }
+                }
+            }
+        }
+    }
+}
